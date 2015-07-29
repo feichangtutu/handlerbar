@@ -1,0 +1,23 @@
+{
+  "name": "hbstudy",
+  "version": "1.0.0",
+  "description": "handlebar study",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/feichangtutu/handlerbar.git"
+  },
+  "keywords": [
+    "handlerbar",
+    "js"
+  ],
+  "author": "Yanni Jia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/feichangtutu/handlerbar/issues"
+  },
+  "homepage": "https://github.com/feichangtutu/handlerbar#readme"
+}

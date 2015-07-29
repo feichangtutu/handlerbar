@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="bower_components/handlebars/handlebars.js"></script>
+</head>
+<body>
+    <div class="entry">
+        <h1>{{title}}}</h1>
+        <div class="body">
+            {{body}}}
+        </div>
+    </div>
+</body>
+<!--deliver a template to the browser by including it in a <script> tag,note the type and id-->
+<script id="entry-template" type="text/x-handlebars-template">
+    <div class="entry">
+        <h1>{{title}}</h1>
+        <div class="body">
+            {{body}}
+        </div>
+    </div>
+</script>
+<!--compile a template in js by using handlebars.compile-->
+</html>
