@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <title></title>
     <script type="text/javascript" src="bower_components/handlebars/handlebars.js"></script>
+    <script type="text/javascript" src="bower_components/jquery/src/jquery.js"></script>
 </head>
 <body>
     <div class="entry">
-        <h1>{{title}}}</h1>
+        <h1>{{title}}</h1>
         <div class="body">
-            {{body}}}
+            {{body}}
         </div>
     </div>
 </body>
@@ -23,4 +24,10 @@
     </div>
 </script>
 <!--compile a template in js by using handlebars.compile-->
+<script>
+    var source = $('#entry-template').html();
+    var template = Handlebars.compile(source);
+    var context = {title:'My new Post',body:'this is jyn first try on handlebars'};
+    var html = template(context);
+</script>
 </html>
