@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title></title>
     <script type="text/javascript" src="bower_components/handlebars/handlebars.js"></script>
-    <script type="text/javascript" src="bower_components/jquery/src/jquery.js"></script>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
 </head>
 <body>
     <div class="entry">
@@ -29,5 +29,7 @@
     var template = Handlebars.compile(source);
     var context = {title:'My new Post',body:'this is jyn first try on handlebars'};
     var html = template(context);
+    console.log(html)
+    $('body').html(html);
 </script>
 </html>
