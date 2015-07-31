@@ -24,9 +24,8 @@ and require a matching closing mustache, /, of the same name.
 循环
 <code>
 {{#each items}}
-        <li>{{agree_button}}</li>
-        {{/each}}
-        </code>
+{{/each}}
+</code>
 注意起始和结束标记 
 ###5.this Handlebars.SafeString
 <code> 
