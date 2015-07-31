@@ -37,7 +37,7 @@ Handlebars.registerHelper('agree_button',function(){
     });
 </code>
 
-###6.particles
+###6.partials
 Handlebars partials allow for code reuse by creating shared templates. 
 模板复用
 registerPartial里面写好模版
