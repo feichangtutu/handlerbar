@@ -11,4 +11,23 @@ The options hash contains a property named fn,
  
 ######Block expressions allow you to define *helpers* 
 that will invoke a section of your template with a different context than the current.
-*These block helpers* are identified by a # preceeding the helper name and require a matching closing mustache, /, of the same name.
+*These block helpers* are identified by a # preceeding the helper name 
+and require a matching closing mustache, /, of the same name.
+
+###3.paths
+嵌套路径
+*../*路径链接到父级模板作用域
+具体怎么用？context可以有多个？？
+
+###4.Handlebars.registerHelper
+想起了angular注册指令
+###5.this Handlebars.SafeString
+<code> 
+Handlebars.registerHelper('agree_button',function(){
+        var emotion = Handlebars.escapeExpression(this.emotion);
+            name = Handlebars.escapeExpression(this.name);
+        return new Handlebars.SafeString(
+             "<button>I agree. I " + emotion + " " + name + "</button>"
+        );
+    });
+</code>

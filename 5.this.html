@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="bower_components/handlebars/handlebars.js"></script>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+</head>
+<body>
+</body>
+<script id="entry-template" type="text/x-handlebars-template">
+    <ul>
+        {{#each items}}
+        <li>{{agree_button}}</li>
+        {{/each}}
+    </ul>
+</script>
+<script type="text/javascript">
+    var context = {
+        items:[
+            {name:'Handlebars',emotion:'love'},
+            {name:'Mustache',emotion:'enjoy'},
+            {name:'bala',emotion:'what to study'}
+        ]
+    };
+    Handlebars.registerHelper('agree_button',function(){
+        var emotion = Handlebars.escapeExpression(this.emotion);
+            name = Handlebars.escapeExpression(this.name);
+        return new Handlebars.SafeString(
+             "<button>I agree. I " + emotion + " " + name + "</button>"
+        );
+    });
+    var source = $('#entry-template').html();
+    var template = Handlebars.compile(source);
+    var result = template(context);
+    $('body').html(result);
+</script>
+</html>

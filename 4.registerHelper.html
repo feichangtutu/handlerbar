@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="bower_components/handlebars/handlebars.js"></script>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+</head>
+<body>
+</body>
+<script id="entry-template" type="text/x-handlebars-template">
+    <div class="post">
+        <h1>By {{fullname author}}</h1>
+        <div class="body">{{body}}</div>
+        <h1>Comments</h1>
+
+        {{#each comments}}
+        <h2>By {{fullname author}}</h2>
+        <div class="body">{{body}}</div>
+        {{/each}}
+    </div>
+</script>
+<script type="text/javascript">
+    var context = {
+        author:{firstName:'Yanni', lastName:'Jia'},
+        body:'Handlebars study for register helper',
+        comments:[{
+            author:{firstName:'Stefanie',lastName:'Jia'},
+            body:'me too!'
+        }]
+    };
+    Handlebars.registerHelper('fullname',function(person){
+        return person.firstName + " " +person.lastName;
+    });
+    var source = $('#entry-template').html();
+    var template = Handlebars.compile(source);
+    var result = template(context);
+    $('body').html(result);
+</script>
+</html>
