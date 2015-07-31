@@ -21,6 +21,11 @@ and require a matching closing mustache, /, of the same name.
 
 ###4.Handlebars.registerHelper
 想起了angular注册指令
+循环
+{{#each items}}
+        <li>{{agree_button}}</li>
+        {{/each}}
+注意起始和结束标记 
 ###5.this Handlebars.SafeString
 <code> 
 Handlebars.registerHelper('agree_button',function(){
@@ -31,3 +36,9 @@ Handlebars.registerHelper('agree_button',function(){
         );
     });
 </code>
+
+###6.particles
+Handlebars partials allow for code reuse by creating shared templates. 
+模板复用
+registerPartial里面写好模版
+
