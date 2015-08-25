@@ -43,3 +43,6 @@ Handlebars partials allow for code reuse by creating shared templates.
 模板复用
 registerPartial里面写好模版
 
+###7.dynamic partials
+
+

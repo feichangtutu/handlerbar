@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>妈妈高考题</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-language" content="zh-CN" />
+    <meta name="description" content="爸妈邦妈妈高考题">
+    <meta name="keywords" content="爸妈邦，高考题">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<link rel="stylesheet" href="css/common.css" type="text/css">
+<style type="text/css">
+    #testTitle{
+        max-width: 100%;
+    }
+  
+    .chosen{
+        color:#48f6e8;
+    }
+    #submit img{
+        max-width: 100%;
+    }
+	.item{
+		font-family: 'SimSun','KaiTi';
+		color: #ffffff;
+		margin: 20px 5px;
+		text-align: left;
+	}
+	.item span{
+		display:block;
+		margin: 10px 5px;
+	}
+	.question{
+		font:'KaiTi';
+		font-size: 18px;
+	}
+</style>
+<body>
+<div class="testBg">
+    <div>
+        <img id="testTitle" src="images/test_title.png"/>
+    </div>
+    <div class="item item1">
+        <span class="question" id="question1">
+            1.宝宝穿纸尿裤红PP应该怎么办？
+        </span>
+        <span  class="answer" id="answer1-a">
+            A.立马更换纸尿裤品牌
+        </span>
+        <span class="answer" id="answer1-b">
+            B.清洁PP
+        </span>
+        <span class="answer correct" id="answer1-c">
+            C.清理PP，轻轻蘸干或晾干，擦上护臀霜，穿上纸尿裤并及时更换
+        </span>
+        <span class="answer" id="answer1-d">
+            D.清理PP，擦上护臀霜
+        </span>
+    </div>
+    <div class="item item2">
+        <span class="question" id="question2">
+            2.母乳喂养的宝宝添加辅食的最佳时间为？
+        </span>
+        <span  class="answer" id="answer2-a">
+           A.4个月
+        </span>
+        <span class="answer correct" id="answer2-b">
+            B.6个月
+        </span>
+        <span class="answer " id="answer2-c">
+            C.3个月
+        </span>
+        <span class="answer" id="answer2-d">
+            D.7个月
+        </span>
+    </div>
+    <div class="item item3">
+        <span class="question" id="question3">
+           3.宝宝三天没有大便，以下处理方法错误的是？
+        </span>
+        <span  class="answer  correct" id="answer3-a">
+           A.用开塞露帮助宝宝排便
+        </span>
+        <span class="answer" id="answer3-b">
+            B.多喝水帮宝宝缓解上火症状
+        </span>
+        <span class="answer " id="answer3-c">
+            C.按摩宝宝肚子助消化
+        </span>
+        <span class="answer" id="answer3-d">
+            D.母乳喂养妈妈的调整饮食
+        </span>
+    </div>
+    <div class="item item4">
+        <span class="question" id="question4">
+            4.母乳妈妈奶水不够，应该： 
+        </span>
+        <span  class="answer" id="answer4-a">
+           A.尝试古法下奶汤下奶食物 
+        </span>
+        <span class="answer" id="answer4-b">
+            B.大量补充高蛋白质食品 
+        </span>
+        <span class="answer " id="answer4-c">
+            C.放弃母乳喂养 
+        </span>
+        <span class="answer correct" id="answer4-d">
+            D. 让宝宝多吸吮，清淡饮食
+        </span>
+    </div>
+    <div class="item item5">
+        <span class="question" id="question5">
+            5.关于补钙以下说法错误的是： 
+        </span>
+        <span  class="answer" id="answer5-a">
+           A.宝宝出生2周后要及时补充鱼肝油 
+        </span>
+        <span class="answer" id="answer5-b">
+            B.多晒太阳预防宝宝缺钙 
+        </span>
+        <span class="answer " id="answer5-c">
+            C.纯母乳喂养的宝宝6个月前一般不需额外补充钙剂 
+        </span>
+        <span class="answer correct" id="answer5-d">
+            D.宝宝出生后就要及时补钙
+        </span>
+    </div>
+    <div class="item item6">
+        <span class="question" id="question6">
+            6.测试宝宝穿盖合适最有效的方法是？ 
+        </span>
+        <span  class="answer" id="answer6-a">
+           A.摸宝宝手脚，冷热适中 
+        </span>
+        <span class="answer" id="answer6-b">
+            B.看宝宝脸色，颜色红润 
+        </span>
+        <span class="answer correct" id="answer6-c">
+            C.摸宝宝后脖子，温热无汗
+        </span>
+        <span class="answer" id="answer6-d">
+            D.以大人的穿盖为标准
+        </span>
+    </div>
+    <div class="item item2">
+        <span class="question" id="question7">
+         7.关于奶粉冲调以下错误的说法是？
+        </span>
+        <span  class="answer" id="answer7-a">
+           A.先放水，再放奶粉
+        </span>
+        <span class="answer" id="answer7-b">
+            B.水温控制在37度左右为最佳
+        </span>
+        <span class="answer " id="answer7-c">
+            C.米粉和奶粉最好不要混合冲调
+        </span>
+        <span class="answer correct" id="answer7-d">
+            D.用矿泉水冲调奶粉既安全，营养又高  
+        </span>
+    </div>
+    <div class="item item8">
+        <span class="question" id="question8">
+            8.宝宝食物中添加调味料最好在：
+        </span>
+        <span  class="answer" id="answer8-a">
+          A.添加辅食之后
+        </span>
+        <span class="answer" id="answer8-b">
+            B.没有特别的规定
+        </span>
+        <span class="answer correct " id="answer8-c">
+            C.1岁以后
+        </span>
+        <span class="answer" id="answer8-d">
+           D.10个月后  
+        </span>
+    </div>
+    <div class="item item9">
+        <span class="question" id="question9">
+            9.清理宝宝鼻屎的方法有：
+        </span>
+        <span  class="answer" id="answer9-a">
+           A.用温毛巾热敷宝宝鼻根处
+        </span>
+        <span class="answer" id="answer9-b">
+            B.在宝宝鼻孔处滴一点母乳
+        </span>
+        <span class="answer " id="answer9-c">
+            C.用吸鼻器帮宝宝排出
+        </span>
+        <span class="answer  correct" id="answer9-d">
+            D.以上都可以  
+        </span>
+    </div>
+    <div class="item item10">
+        <span class="question" id="question10">
+            10.宝宝从几个月开始可以开始竖抱？
+        </span>
+        <span  class="answer" id="answer10-a">
+           A.出生后就可以
+        </span>
+        <span class="answer correct" id="answer10-b">
+            B.3个月
+        </span>
+        <span class="answer " id="answer10-c">
+           C.7个月
+        </span>
+        <span class="answer" id="answer10-d">
+            D.9个月  
+        </span>
+    </div>
+    <div class="item item11">
+        <span class="question" id="question11">
+            11.以下哪种吐奶需要及时就医？
+        </span>
+        <span  class="answer" id="answer11-a">
+           A.吃完马上就吐
+        </span>
+        <span class="answer correct" id="answer11-b">
+            B.呈喷射状吐奶
+        </span>
+        <span class="answer " id="answer11-c">
+            C.拍了嗝还是吐
+        </span>
+        <span class="answer" id="answer11-d">
+            D.吃奶一个小时后吐
+        </span>
+    </div>
+    <div class="item item12">
+        <span class="question" id="question12">
+            12.宝宝洗澡的最佳室温和水温是？
+        </span>
+        <span  class="answer correct" id="answer12-a">
+           A.室温26-28度，水温37-42度
+        </span>
+        <span class="answer" id="answer12-b">
+            B.室温23-24度，水温30-32度
+        </span>
+        <span class="answer " id="answer12-c">
+            C.室温26-28度，水温30-32度
+        </span>
+        <span class="answer" id="answer12-d">
+            D.室温23-24度，水温37-42度  
+        </span>
+    </div>
+    <div class="item item13">
+        <span class="question" id="question13">
+            13.关于宝宝饮食，以下说法正确的是？
+        </span>
+        <span  class="answer" id="answer13-a">
+           A.奶粉越浓，营养成分越多
+        </span>
+        <span class="answer" id="answer13-b">
+           B.不喝开水可以喝果汁代替
+        </span>
+        <span class="answer correct " id="answer13-c">
+           C.辅食添加，最好由细到粗，由稀到稠
+        </span>
+        <span class="answer" id="answer13-d">
+            D.不爱吃饭，有营养的点心也可以
+        </span>
+    </div>
+    <div class="item item14">
+        <span class="question" id="question14">
+            14.关于物理降温法，哪种方法是错误的？
+        </span>
+        <span  class="answer" id="answer14-a">
+           A.用温水擦拭宝宝脖子，大腿根及腋窝
+        </span>
+        <span class="answer correct" id="answer14-b">
+            B.宝宝发烧可用酒精擦拭降温
+        </span>
+        <span class="answer " id="answer14-c">
+            C.38.3度以下最好先用物理降温法
+        </span>
+        <span class="answer" id="answer14-d">
+            D.使用退热贴 
+        </span>
+    </div>
+    <div class="item item15">
+        <span class="question" id="question15">
+            15.关于选择奶粉，最重要的原则是？
+        </span>
+        <span  class="answer" id="answer15-a">
+           A.进口奶粉，奶源好
+        </span>
+        <span class="answer correct" id="answer15-b">
+           B.口碑好，朋友的宝宝都在吃
+        </span>
+        <span class="answer correct" id="answer15-c">
+            C.适合宝宝口味及体质
+        </span>
+        <span class="answer" id="answer15-d">
+            D.价钱高，添加营养成分多  
+        </span>
+    </div>
+    <div class="item item16">
+        <span class="question" id="question16">
+            16.关于使用抗生素，以下说法正确的是？
+        </span>
+        <span  class="answer" id="answer16-a">
+           A.宝宝不能使用抗生素，会产生依赖。
+        </span>
+        <span class="answer" id="answer16-b">
+            B.及时使用抗生素，生病会影响宝宝发育。
+        </span>
+        <span class="answer  correct" id="answer16-c">
+            C.不滥用抗生素，病情严重时需使用抗生素。
+        </span>
+        <span class="answer" id="answer16-d">
+            D.宝宝发烧，有炎症时，妈妈可给宝宝口服抗生素。  
+        </span>
+    </div>
+    <div class="item item17">
+        <span class="question" id="question17">
+            17.以下哪种情况，不会导致宝宝消化不良？
+        </span>
+        <span  class="answer" id="answer17-a">
+           A.母乳妈妈饮食油腻
+        </span>
+        <span class="answer" id="answer17-b">
+            B.更换奶粉
+        </span>
+        <span class="answer" id="answer17-c">
+            C.过早添加辅食
+        </span>
+        <span class="answer correct" id="answer17-d">
+            D.按需喂养  
+        </span>
+    </div>
+    <div class="item item18">
+        <span class="question" id="question18">
+            18.哪些情况不会影响宝宝夜间睡眠？
+        </span>
+        <span  class="answer" id="answer18-a">
+           A.晚餐过饱或吃了不易消化的食物
+        </span>
+        <span class="answer correct" id="answer18-b">
+            B.白天活动多，消耗宝宝多余精力
+        </span>
+        <span class="answer " id="answer18-c">
+           C.睡前兴奋，玩得太开心
+        </span>
+        <span class="answer" id="answer18-d">
+            D.白天睡得多  
+        </span>
+    </div>
+    <div class="item item19">
+        <span class="question" id="question19">
+            19.关于宝宝学走路，以下说法正确的是？
+        </span>
+        <span  class="answer" id="answer19-a">
+           A.会站就可以教宝宝走路
+        </span>
+        <span class="answer" id="answer19-b">
+            B.3个月后就可以扶着宝宝腋下学习走路
+        </span>
+        <span class="answer correct" id="answer19-c">
+            C.最好1岁以后再学习走路
+        </span>
+        <span class="answer" id="answer19-d">
+            D.走路晚就是缺钙 
+        </span>
+    </div>
+    <div class="item item20">
+        <span class="question" id="question20">
+            20.关于宝宝学说话，以下说法正确的是？
+        </span>
+        <span  class="answer" id="answer20-a">
+           A.越早说话越聪明
+        </span>
+        <span class="answer" id="answer20-b">
+           B.说话是人的天生本领，不教也能学会
+        </span>
+        <span class="answer" id="answer20-c">
+           C.到月龄不说话，需要给宝宝挑舌系带
+        </span>
+        <span class="answer correct" id="answer20-d">
+            D.教宝宝说话应该多跟宝宝交流，多听有韵律的儿歌
+        </span>
+    </div>
+    <a href="score.html">
+        <div id="submit">
+            <img src="images/submit.png"/>
+        </div>
+    </a>
+</div>
+</body>
+<script src="js/jquery-1.11.1.js" type="text/javascript"></script>
+<script src="js/wx_share01.js" type="text/javascript"></script>
+<script type="text/javascript">
+//add chosen
+    $('.answer').click(
+            function(){
+                $(this).parent().children('.answer').removeClass('chosen');
+                $(this).addClass('chosen');
+            }
+    );
+</script>
+</html>

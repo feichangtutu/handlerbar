@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=640,user-scalable=no,target-densitydpi=device-dpi"/>
+    <title>2015年妈妈高考(全国版)试卷 快来看看你是什么级别的妈妈？</title>
+    <meta name="description" content="爸妈帮，硝烟弥漫的2015年全国高考刚刚过去，
+    各位妈妈们想不想来试试2015年的妈妈高考，您能打多少分呢？" />
+    <link href="css/common.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/zepto.min.js"></script>
+    <script type="text/javascript" src="js/touch.js"></script>
+    <script type="text/javascript" src="js/handlebars-v3.0.3.js"></script>
+    <script type="text/javascript" src="js/data.js"></script>
+    <script id="title-template" type="text/x-handlebars-template">
+        {{#each question_bank}}
+        <div class='comWidth clearfix slide-page step{{zeroIndex @index}}' >
+            <div class="gametitle item">
+                <span class="question">{{addOne @index}}.{{title}}？</span>
+                <div class="txt" index='{{@index}}'>
+                    {{#list keys}}
+                        {{content}}
+                    {{/list}}
+                </div>
+                <div class="backBtn" style="text-align: center;"><img src="images/left.png"></div>
+            </div>
+        </div>
+        {{/each}}
+    </script>
+    <script id="resolve-template" type="text/x-handlebars-template">
+        {{#each question_bank}}
+            {{#if result}}
+            {{else}}
+        <div class="ex">
+            <span>第</span><span class="index">{{addOne @index}}</span><span>题正确答案：</span><span class="index-answer">{{answer}}</span>
+            <!-- <div>	题目回放：</div> -->
+            <div class="item item3">
+                {{#list keys}}
+                    {{content}}
+                {{/list}}
+            </div>
+            <div style="margin-bottom: -10px;">
+                爸妈邦知识库相关文章:
+            </div>
+            <div class="article">
+                <a href='{{explain.href}}'>
+                    {{explain.caption}}
+                </a>     &nbsp;
+            </div>
+        </div>
+            {{/if}}
+        {{/each}}
+    </script>
+    <style>
+        #testButton {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+        }
+        .item{
+            font-family: 'SimSun','KaiTi';
+            color: #ffffff;
+            margin: 20px 5px;
+            text-align: left;
+        }
+        .item span{
+            display:block;
+            margin: 10px 5px;
+        }
+        .question{
+            font:'KaiTi';
+            font-size: 1.6em;
+        }
+
+        #scoreHeader img{
+            max-width:100%;
+        }
+        #scoreHeader{
+            position: relative;
+        }
+        #scoreHeader p{
+            width: 100%;
+        }
+        #score{
+            color: #ffffff;
+            font-family: arial, helvetica, sans-serif;
+            font-size: 40px;
+            position:absolute;
+            top: 190px;
+            text-align: center;
+        }
+        @media screen and (max-width: 320px) {
+            #score{
+                bottom: 22px;
+            }
+        }
+        @media screen and (min-width: 301px) {
+            #score{
+                top: 190px;
+                font-size: 45px;
+            }
+        }
+        #number{
+            clear: both;
+        }
+        #errorNumber{
+            color: #d37171;
+            font-size: 45px;
+        }
+        #number span{
+            display: inline-block;
+        }
+        #number span img{
+            max-width: 100%;
+        }
+        /*.article{*/
+            /*font-family: 'SimSun','KaiTi';*/
+            /*color: #ffffff;*/
+            /*margin: 20px 20px;*/
+            /*text-align: left;*/
+            /*font-size: 20px;*/
+        /*}*/
+        .article a{
+            text-decoration: none;
+            color:#fd5d5d;
+            opacity: 0.8;
+        }
+        .index-answer{
+            color:#a5ff88;
+            font-weight: 600;
+            opacity: 0.8;
+        }
+        .ex{
+            margin-bottom: 20px;
+        }
+        .ex span{
+            font-size:18x;
+        }
+        #guide img{
+            max-width: 100%;
+        }
+        .chosen{
+            color:#48f6e8;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="comWidth clearfix slide-page step01" style="z-index: 22;">
+
+    <div id="testButton">
+        <img src="images/button.png">
+    </div>
+</div>
+
+<div id="eachtitle">
+</div>
+
+<div id="scrollArea" class="comWidth clearfix slide-page step22" style="z-index: 1;overflow-y: auto;">
+    <div id="scoreHeader">
+        <img src="images/score-top.png">
+        <p id="score"></p>
+    </div>
+    <div id="number">
+        <span style="margin-left: 3%; width: 23%;">
+            <img src="images/error-title_1.png">
+        </span>
+        <span id="errorNumber" style=" width: 8%;">3</span>
+        <span style=" width: 10%;">
+            <img src="images/error-title_2.png">
+        </span>
+        <a href="rule.html">
+            <span style=" width: 45%;margin-left: 5%;">
+                <img src="images/instruction.png">
+            </span>
+        </a>
+    </div>
+    <div id="titleResult">
+    </div>
+    <div id="resolve">
+
+    </div>
+    <div id="guide">
+        <img src="images/guide.png">
+    </div>
+</div>
+
+<script type="text/javascript">
+    //注册索引+1的helper
+    Handlebars.registerHelper("addOne",function(index){
+      //返回+1之后的结果
+      return index+1;
+    });
+    Handlebars.registerHelper("reverseIndex",function(question_bank_length,index){
+        var actIndex = question_bank_length-index;
+        //返回+1之后的结果
+        return actIndex;
+    });
+    Handlebars.registerHelper("zeroIndex",function(index){
+        var handleIndex = (index+2).toString();
+        if((index+2).toString().length<2)handleIndex="0"+handleIndex;
+        return handleIndex;
+    });
+    Handlebars.registerHelper('list', function(items, options) {
+        var out = "<ul>";
+        var titleFlag = {
+            0:"A",1:"B",2:"C",3:"D"
+        };
+        for(var i=0, l=items.length; i<l; i++) {
+            var isRight = items[i].isRight?'cq':'';
+            out = out + "<li class="+isRight+">"+titleFlag[i]+"." + options.fn(items[i]) + "</li>";
+        }
+        return out + "</ul>";
+    });
+    var sliderTemplate = Handlebars.compile($("#title-template").html());
+    $("#eachtitle").html(sliderTemplate(requestData));
+    var extraDiv = $("<div><img id='testTitle' src='images/test_title.png'></div>");
+    $(".step02").prepend(extraDiv);
+    $(".step02").find(".gametitle").css("padding-top","10%");
+    $(".step02").find(".backBtn").remove();
+    $(".step21").find(".gametitle").css("padding-top","10%");
+    var extraDiv1 = $("<div><img id='submit' src='images/submit.png'></div>");
+    $(".step21").append(extraDiv1);
+</script>
+<script type="text/javascript" src="js/pageslider.js"></script>
+<script type="text/javascript" src="js/base64.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>

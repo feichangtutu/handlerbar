@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>妈妈高考题</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-language" content="zh-CN" />
+    <meta name="description" content="爸妈邦妈妈高考题">
+    <meta name="keywords" content="爸妈邦，高考题">
+    <meta name="viewport" content="width=640,user-scalable=no,target-densitydpi=device-dpi"/>
+</head>
+<link rel="stylesheet" href="css/common.css" type="text/css">
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript" src="js/handlebars-v3.0.3.js"></script>
+<script type="text/javascript" src="js/base64.js"></script>
+<script type="text/javascript" src="js/data.js"></script>
+<style type="text/css">
+    .testBg {
+        background: url("images/test_bg.png") no-repeat;
+        background-size: 100% auto;
+    }
+    #scoreHeader img{
+        max-width:100%;
+    }
+    #scoreHeader{
+        position: relative;
+    }
+    #scoreHeader p{
+        width: 100%;
+    }
+    #score{
+        color: #ffffff;
+        font-family: arial, helvetica, sans-serif;
+        font-size: 40px;
+        position:absolute;
+        top: 190px;
+        text-align: center;
+    }
+    @media screen and (max-width: 320px) {
+        #score{
+            bottom: 22px;
+        }
+    }
+    @media screen and (min-width: 301px) {
+        #score{
+            top: 190px;
+            font-size: 45px;
+        }
+    }
+    #number{
+        clear: both;
+    }
+    #errorNumber{
+        color: #d37171;
+        font-size: 45px;
+    }
+    #number span{
+        display: inline-block;
+    }
+    #number span img{
+        max-width: 100%;
+    }
+    .explain{
+        font-family: 'SimSun','KaiTi';
+        color: #ffffff;
+        margin: 20px 20px;
+        text-align: left;
+        font-size: 20px;
+    }
+    .explain a{
+        text-decoration: none;
+        color:#fd5d5d;
+        opacity: 0.8;
+    }
+    .index-answer{
+        color:#a5ff88;
+        font-weight: 600;
+        opacity: 0.8;
+    }
+    .ex{
+        margin-bottom: 20px;
+    }
+	.ex span{
+		font-size:18x;
+	}
+    #guide img{
+        max-width: 100%;
+    }
+
+	.item span{
+		display:block;
+		margin: 10px 0px;
+		font-size: 16px;
+	}
+	.question{
+		font:'KaiTi';
+		font-size: 18px;
+	}
+    .article a{
+        text-decoration: none;
+        color:#fd5d5d;
+        opacity: 0.8;
+    }
+</style>
+<script id="resolve-template" type="text/x-handlebars-template">
+    {{#each question_bank}}
+    {{#if result}}
+    {{else}}
+    <div class="ex">
+        <span>第</span><span class="index">{{addOne @index}}</span><span>题正确答案：</span><span class="index-answer">{{answer}}</span>
+        <!-- <div>	题目回放：</div> -->
+        <div>{{title}}？</div>
+        <div class="item item3">
+            {{#list keys}}
+            {{content}}
+            {{/list}}
+        </div>
+        <div style="margin-bottom: -10px;">
+            爸妈邦知识库相关文章:
+        </div>
+        <div class="article">
+            <a href='{{explain.href}}'>
+                {{explain.caption}}
+            </a>     &nbsp;
+        </div>
+    </div>
+    {{/if}}
+    {{/each}}
+</script>
+
+<body>
+<div id="scrollArea" class="comWidth clearfix slide-page step22" style="z-index: 1;overflow-y: auto;">
+    <div id="scoreHeader">
+        <img src="images/score-top.png">
+        <p id="score"></p>
+    </div>
+    <img id="rankImg" src="">
+    <div id="number">
+        <span style="margin-left: 3%; width: 23%;">
+            <img src="images/error-title_1.png">
+        </span>
+        <span id="errorNumber" style=" width: 8%;"></span>
+        <span style=" width: 10%;">
+            <img src="images/error-title_2.png">
+        </span>
+        <a id="gotorule">
+            <span style=" width: 45%;margin-left: 5%;">
+                <img src="images/instruction.png">
+            </span>
+        </a>
+    </div>
+    <div id="titleResult">
+    </div>
+    <div id="resolve">
+
+    </div>
+    <div id="guide">
+        <img src="images/guide.png">
+    </div>
+</div>
+</body>
+<script>
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+    var dataUrl = getQueryString("requestData");
+    var urlData = JSON.parse(decode64(dataUrl));
+    var zongfen = urlData.scorepackage.zongfen;
+    $("#gotorule").on("click",function(){
+        location.href = "rule.html?zongfen="+zongfen;
+    });
+    var $rankImg = $("#rankImg");
+    if(!!zongfen){
+        if(zongfen<=60){
+            $rankImg.attr("src","images/level4.png");
+        }else if(zongfen>=60&&zongfen<80){
+            $rankImg.attr("src","images/level3.png");
+        }else if(zongfen>=80&&zongfen<90){
+            $rankImg.attr("src","images/level2.png");
+        }else if(zongfen>=90&&zongfen<=100){
+            $rankImg.attr("src","images/level1.png");
+        }
+    }
+    $("#score").text(urlData.scorepackage.zongfen);
+    $("#errorNumber").text(urlData.scorepackage.wrongnum);
+    var wronglib = urlData.wronglib;
+    for(var item in wronglib) {
+        var indexstr = wronglib[item];
+        requestData.question_bank[indexstr].result = true;
+    }
+    //注册索引+1的helper
+    Handlebars.registerHelper("addOne",function(index){
+        //返回+1之后的结果
+        return index+1;
+    });
+    Handlebars.registerHelper("reverseIndex",function(question_bank_length,index){
+        var actIndex = question_bank_length-index;
+        //返回+1之后的结果
+        return actIndex;
+    });
+    Handlebars.registerHelper("zeroIndex",function(index){
+        var handleIndex = (index+2).toString();
+        if((index+2).toString().length<2)handleIndex="0"+handleIndex;
+        return handleIndex;
+    });
+    Handlebars.registerHelper('list', function(items, options) {
+        var out = "<ul>";
+        var titleFlag = {
+            0:"A",1:"B",2:"C",3:"D"
+        };
+        for(var i=0, l=items.length; i<l; i++) {
+            var isRight = items[i].isRight?'cq':'';
+            out = out + "<li class="+isRight+">"+titleFlag[i]+"." + options.fn(items[i]) + "</li>";
+        }
+        return out + "</ul>";
+    });
+    var resolveTemplate = Handlebars.compile($("#resolve-template").html());
+    $("#resolve").html(resolveTemplate(requestData));
+</script>
+<script src="js/wx_share01.js" type="text/javascript"></script>
+</html>
