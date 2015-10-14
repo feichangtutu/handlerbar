@@ -8,6 +8,8 @@ The helper receives the people as its first parameter,
 and an options hash as its second parameter. 
 The options hash contains a property named fn,
  which you can invoke with a context just as you would invoke a normal Handlebars template.
+
+Handlebars的 {{expression}} 表达式会返回一个 HTML编码 HTML-escape 过的值。如果不希望Handlebars来编码这些值，使用三个大括号即可：{{{。
  
 ######Block expressions allow you to define *helpers* 
 that will invoke a section of your template with a different context than the current.
@@ -44,5 +46,6 @@ Handlebars partials allow for code reuse by creating shared templates.
 registerPartial里面写好模版
 
 ###7.dynamic partials
+
 
 
