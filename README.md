@@ -1,8 +1,8 @@
 # handlerbar
-###1.first_try
+### 1.first_try
 初次学习，重点了解模版，可编辑context，以及最后模板注入
 
-###2.handler_register
+### 2.handler_register
 we would create a helper named list to generate our HTML list. 
 The helper receives the people as its first parameter, 
 and an options hash as its second parameter. 
@@ -11,17 +11,17 @@ The options hash contains a property named fn,
 
 Handlebars的 {{expression}} 表达式会返回一个 HTML编码 HTML-escape 过的值。如果不希望Handlebars来编码这些值，使用三个大括号即可：{{{。
  
-######Block expressions allow you to define *helpers* 
+###### Block expressions allow you to define *helpers* 
 that will invoke a section of your template with a different context than the current.
 *These block helpers* are identified by a # preceeding the helper name 
 and require a matching closing mustache, /, of the same name.
 
-###3.paths
+### 3.paths
 嵌套路径
 *../*路径链接到父级模板作用域
 具体怎么用？context可以有多个？？
 
-###4.Handlebars.registerHelper
+### 4.Handlebars.registerHelper
 想起了angular注册指令
 循环
 <code>
@@ -29,7 +29,7 @@ and require a matching closing mustache, /, of the same name.
 {{/each}}
 </code>
 注意起始和结束标记 
-###5.this Handlebars.SafeString
+### 5.this Handlebars.SafeString
 <code> 
 Handlebars.registerHelper('agree_button',function(){
         var emotion = Handlebars.escapeExpression(this.emotion);
@@ -40,12 +40,12 @@ Handlebars.registerHelper('agree_button',function(){
     });
 </code>
 
-###6.partials
+### 6.partials
 Handlebars partials allow for code reuse by creating shared templates. 
 模板复用
 registerPartial里面写好模版
 
-###7.dynamic partials
+### 7.dynamic partials
 
 
 
